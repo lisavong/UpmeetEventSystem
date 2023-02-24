@@ -3,13 +3,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UpmeetEventAPI.Models
 {
-    public class EventModel
+    public class Event
     {
         [Key]
         public int EventID { get; set; }
 
         [Required]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         [Required]
         public string Name { get; set; }

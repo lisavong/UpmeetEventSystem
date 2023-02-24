@@ -5,8 +5,8 @@ namespace UpmeetEventAPI.DAL
 {
     public class EventContext : DbContext
     {
-        public DbSet<EventModel> Events { get; set; }
-        public DbSet<FavoriteModel> Favorite { get; set; }  
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Favorite> Favorite { get; set; }  
 
         public EventContext() { }
 
