@@ -1,0 +1,11 @@
+
+<p>Hello!</p>
+
+<ul>
+        <li *ngFor="let event of events, index as eventID">
+          <span style="font-size: 20px;text-align: center;">
+            <a [routerLink]="['/event-details/' + eventID]"> {{event.name}}</a>
+          </span>
+        </li>
+</ul>
+
