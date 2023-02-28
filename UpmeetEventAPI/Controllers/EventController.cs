@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UpmeetEventAPI.DAL;
 using UpmeetEventAPI.Models;
@@ -33,9 +33,15 @@ namespace UpmeetEventAPI.Controllers
         public List<Event> GetAll()
         {
             return repo.GetAllEvents();
-        }       
+        }
 
-
+    [HttpGet("{eventID}")]
+    public Event GetById(int eventID)
+    {
+      return repo.FindEventById(eventID);
     }
+
+
+  }
     
 }

@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using UpmeetEventAPI.Models;
 
 namespace UpmeetEventAPI.DAL
@@ -33,7 +33,7 @@ namespace UpmeetEventAPI.DAL
 
         public bool DeleteById(int id)
         {
-            Favorite favoriteEvent = FindById(id);
+            Favorite favoriteEvent = FindFaveById(id);
             if (favoriteEvent == null)
             {
                 return false;
@@ -43,13 +43,18 @@ namespace UpmeetEventAPI.DAL
             return true;
         }
 
-        public Favorite FindById(int id)
+        public Favorite FindFaveById(int FaveId)
         {
             // AsNoTracking will not lock the ID allowing updating it after finding it
-            return _dbContext.Favorite.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            return _dbContext.Favorite.FirstOrDefault(x => x.Id == FaveId);
         }
+    public Event FindEventById(int eventID)
+    {
+      // AsNoTracking will not lock the ID allowing updating it after finding it
+      return _dbContext.Events.FirstOrDefault(x => x.EventID == eventID);
+    }
 
-        public List<Event> GetAllEvents()
+    public List<Event> GetAllEvents()
         {
             return _dbContext.Events.ToList();
         }
