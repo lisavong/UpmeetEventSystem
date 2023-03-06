@@ -14,12 +14,12 @@ namespace UpmeetEventAPI.Controllers
         EventRepository repo = new EventRepository();
 
         [HttpPost("add/{userID}/{eventID}")]
-        public Favorite AddFavorite(int userID, int eventID)
+        public Favorite AddFavorite(Favorite addedFavorite)
         {
             Favorite newFavorite = new Favorite
             {
-                UserID= userID,
-                EventID = eventID
+                UserID= addedFavorite.UserID,
+                EventID = addedFavorite.EventID
 
             };
 

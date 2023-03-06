@@ -11,7 +11,7 @@ using UpmeetEventAPI.DAL;
 namespace UpmeetEventAPI.Migrations
 {
     [DbContext(typeof(EventContext))]
-    [Migration("20230224022150_initial")]
+    [Migration("20230305160349_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,8 +47,9 @@ namespace UpmeetEventAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<string>("Price")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EventID");
 

@@ -14,15 +14,15 @@ namespace UpmeetEventAPI.Controllers
         EventRepository repo = new EventRepository();
 
         [HttpPost("add")]
-        public Event AddEvent(string date, string name, string description, double price, string location)
+        public Event AddEvent(Event addedEvent)
         {
             Event newEvent = new Event
             {
-                Date = date,
-                Name = name,
-                Description = description,
-                Price = price,
-                Location = location
+                Date = addedEvent.Date,
+                Name = addedEvent.Name,
+                Description = addedEvent.Description,
+                Price = addedEvent.Price,
+                Location = addedEvent.Location
 
             };
 

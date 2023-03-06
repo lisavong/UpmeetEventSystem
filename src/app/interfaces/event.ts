@@ -3,6 +3,6 @@ export interface IEvent{
     date: string,
     name: string;
     description: string;
-    price: number;
+    price: string;
     location: string;
 }

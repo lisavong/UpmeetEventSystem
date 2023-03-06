@@ -1,11 +1,33 @@
-
-<p>Hello!</p>
-
-<ul>
-        <li *ngFor="let event of events, index as eventID">
-          <span style="font-size: 20px;text-align: center;">
-            <a [routerLink]="['/event-details/' + eventID]"> {{event.name}}</a>
-          </span>
-        </li>
+<div>
+  <ul>
+    <li *ngFor="let event of events, index as eventID">
+      <!-- <span style="font-size: 20px;text-align: center;">
+        <a [routerLink]="['/event-details/' + eventID]"> {{event.name}}</a>
+      </span> -->
+      <p>{{event.name}}</p>
+    </li>
 </ul>
+</div>
 
+
+<div>
+  <form #newEventForm="ngForm" (ngSubmit)="addEvent(newEventForm)">
+    <p> <label for="date">Date of Event:</label> <input name="date" id="date" ngModel /></p>
+    <p> <label for="name">Event Name:</label> <input name="name" id="name" ngModel /> </p>
+    <p> <label for="description">Description:</label> <input name="description" id="description" ngModel /></p>
+    <p> <label for="price">Price per ticket:</label> <input name="price" id="price" ngModel /></p>
+    <p> <label for="location">Location:</label> <input name="location" id="location" ngModel /></p>
+    <p><button>Add New Event</button></p>
+    </form>
+</div>
+
+<!-- <mat-form-field appearance="outline"> -->
+  
+<!-- </mat-form-field> -->
+
+
+<!-- <p> <mat-label for="date">Date of Event:</mat-label> <input matInput [matDatepicker]="picker" 
+  name="date" id="date" ngModel />
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker></p> -->

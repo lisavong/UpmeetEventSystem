@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RepositoryService } from './repository-service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,10 @@ import { RepositoryService } from './repository-service';
 })
 export class AppComponent {
   title = 'UpmeetEventSystem';
+  userID = -1;
 
+  // addUserID(form:NgForm){
+  //   let userID = form.form.value.userID;
+  //   this.favorites.push(userID);
+  // }
 }

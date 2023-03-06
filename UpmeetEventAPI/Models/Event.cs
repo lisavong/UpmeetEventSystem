@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace UpmeetEventAPI.Models
@@ -8,20 +8,14 @@ namespace UpmeetEventAPI.Models
         [Key]
         public int EventID { get; set; }
 
-        [Required]
         public string Date { get; set; }
 
-        [Required]
         public string Name { get; set; }
 
-        [Required]
         public string Description { get; set; }
 
-        [Required]
-        [DefaultValue(0.00)]
-        public double Price { get; set; }
+        public string Price { get; set; }
 
-        [Required]
         public string Location { get; set; }
     }
 }

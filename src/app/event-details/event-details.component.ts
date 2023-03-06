@@ -1,7 +1,7 @@
 import { Component, Input , OnInit} from '@angular/core';
-import { RepositoryService } from 'app/repository-service';
 import { IEvent } from 'app/interfaces/event';
 import { ActivatedRoute } from '@angular/router';
+import { RepositoryService } from 'app/repository.service';
 
 @Component({
   selector: 'app-event-details',
@@ -9,17 +9,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./event-details.component.css']
 })
 export class EventDetailsComponent {
-  @Input() index: number = 0;
+  @Input() index: string = "N/A";
   eventDetails: IEvent | undefined;
 
   constructor(private route: ActivatedRoute, private repo:RepositoryService) { }
 
-  ngOnInit(): void {
-    //this.index = this.route.snapshot.params['index'];
-    //this.boss = this.bossRepo.getBossByIndex(this.index)
-
-
-    this.repo.getEventDetails(this.index).subscribe(
-      (response) => {this.eventDetails = response;});
-  }
+  // ngOnInit(): void {
+  //   this.repo.getEventDetails(this.index).subscribe(
+  //     (response) => {this.eventDetails = response;});
+  // }
 }

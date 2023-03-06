@@ -1,1 +1,19 @@
-<p>favorites works!</p>
+<h1>Your Favorite Events</h1>
+
+<!-- <div>
+    <form #userIDForm="ngForm" (ngSubmit)="addUserID(userIDForm)">
+        <label for="userID">Enter user ID:</label>
+       <input name="userID" id="userID" ngModel />
+       <button (click)="toggleFavorites()">Show Favorites</button>
+    </form>
+</div> -->
+
+<div *ngIf="showFavorites">
+    <div *ngFor="let name of favorites">
+        <div> {{name}} </div>
+    </div>
+    <div>
+        {{favoriteText}}
+    </div>
+</div>
+
