@@ -12,11 +12,11 @@
     <div *ngFor="let fave of favorites">
         <div> {{fave.eventID}} </div>
     </div>
-    <!-- <form #deleteForm="ngForm" (ngSubmit)="deleteFavoriteByID(deleteID)">
+    <form #deleteForm="ngForm" (ngSubmit)="deleteFavoriteByID(deleteForm)">
         <label for="deleteID">Enter ID You Want To Remove:</label>
         <input name="deleteID" id="deleteID" ngModel />
         <button>Remove From Favorites</button>
-    </form> -->
+    </form>
     <div>
         {{favoriteText}}
     </div>

@@ -11,6 +11,8 @@ import { RepositoryService } from 'app/repository.service';
 })
 export class EventComponent {
 
+  
+
   constructor(private repositoryService: RepositoryService) { }
   events: any;
   date: string ="";

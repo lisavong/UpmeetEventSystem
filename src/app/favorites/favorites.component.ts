@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { IFavorites } from 'app/interfaces/favorites';
 import { RepositoryService } from 'app/repository.service';
+import { EventComponent } from 'app/event/event.component';
 
 @Component({
   selector: 'app-favorites',
@@ -8,6 +10,7 @@ import { RepositoryService } from 'app/repository.service';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent {
+
   showFavorites: boolean = false;
   favoriteText: string = "";
 
@@ -16,6 +19,7 @@ export class FavoritesComponent {
   favorites: any;
   activeUserID: number = -1;
   deleteID: number =-1;
+  id: number =-1;
 
   getUserID(form: NgForm) {
    this.activeUserID = form.form.value.activeUserID;
@@ -34,10 +38,18 @@ export class FavoritesComponent {
     // }
   }
 
-  // deleteFavoriteByID(deleteID: number) {
-  //   this.repositoryService.deleteFavoriteByID(deleteID).subscribe(
-  //     (response) => {
-  //       this.toggleFavorites(this.activeUserID);
-  //     }
-  //   );
+  deleteFavoriteByID(form: NgForm) {
+
+    let deletedFavorite: IFavorites = {
+      id: form.form.value.userID,
+      userID: -1,
+      eventID: -1
+     };
+
+    this.repositoryService.deleteFavoriteByID(deletedFavorite).subscribe(
+      (response) => {
+        this.repositoryService.getFavoritesByUserID(this.activeUserID);
+      }
+    );
   }
+}
