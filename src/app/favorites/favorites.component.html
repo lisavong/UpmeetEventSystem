@@ -9,16 +9,18 @@
 </div>
 
 <div *ngIf="showFavorites">
-    <div *ngFor="let fave of favorites">
-        <div> {{fave.eventID}} </div>
+    <div *ngFor="let fave of favorites, index as i">
+        <span> Favorites ID: {{fave.id}} | <a [routerLink]="['/event-details', i+1]" routerLinkActive="active"> {{fave.name}}</a>
+         </span>
     </div>
+    <br>
     <form #deleteForm="ngForm" (ngSubmit)="deleteFavoriteByID(deleteForm)">
         <label for="deleteID">Enter ID You Want To Remove:</label>
         <input name="deleteID" id="deleteID" ngModel />
         <button>Remove From Favorites</button>
     </form>
-    <div>
-        {{favoriteText}}
+    <div *ngIf="noFavorites">
+    <p>You have no favorite events. Go back and add some!</p>
     </div>
 </div>
 

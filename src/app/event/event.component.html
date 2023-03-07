@@ -10,17 +10,20 @@
 <div *ngFor="let event of events, index as i">
       <a [routerLink]="['/event-details', i+1]" routerLinkActive="active">{{event.name}}</a>
 </div>
-
-
-<div>
+<br>
+<hr>
+<button (click)="toggleAddFave()">{{buttonFaveText}}</button>
+<div *ngIf="showFaveAdd">
   <form #newFavoriteForm="ngForm" (ngSubmit)="addFavorite(newFavoriteForm)">
     <label for="userID">User ID:</label> <input name="userID" id="userID" ngModel />
     <label for="eventID">Event ID:</label> <input name="eventID" id="eventID" ngModel />
     <button>Add Favorite</button>
   </form>
 </div>
-
-<div>
+<br>
+<hr>
+<button (click)="toggleAddEvent()">{{buttonEventText}}</button>
+<div *ngIf="showEventAdd">
   <form #newEventForm="ngForm" (ngSubmit)="addEvent(newEventForm)">
     <p> <label for="date">Date of Event:</label> <input name="date" id="date" ngModel /></p>
     <p> <label for="name">Event Name:</label> <input name="name" id="name" ngModel /> </p>

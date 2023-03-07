@@ -23,9 +23,24 @@ export class EventComponent {
   userID: number = -1;
   eventID: number =-1;
 
+  buttonEventText: string = "Click To Add A New Event!";
+  buttonFaveText: string = "Want To Add An Event To Your Favorites List?"
+  showEventAdd: boolean = false;
+  showFaveAdd: boolean = false;
+
 
   ngOnInit(): void {
     this.gettEvents();
+  }
+
+  toggleAddEvent(): void {
+    this.showEventAdd = !this.showEventAdd;
+    if (this.showEventAdd) {
+      this.buttonEventText = "Close";
+    }
+    else {
+      this.buttonEventText = "Click To Add A New Event!";
+    }
   }
 
   addEvent(form: NgForm) {
@@ -52,6 +67,16 @@ export class EventComponent {
       (response) => {
         this.events = response;
       });
+  }
+
+  toggleAddFave(): void {
+    this.showFaveAdd = !this.showFaveAdd;
+    if (this.showFaveAdd) {
+      this.buttonFaveText = "Close";
+    }
+    else {
+      this.buttonFaveText = "Want To Add An Event To Your Favorites List?";
+    }
   }
 
   addFavorite(form: NgForm) {

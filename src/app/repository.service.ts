@@ -37,4 +37,5 @@ export class RepositoryService {
     getEventByID(eventID: number){
     return this.http.get(`${this.EventApiUri}/${eventID}`);
   }
+  
 }
