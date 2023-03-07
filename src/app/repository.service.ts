@@ -22,20 +22,20 @@ export class RepositoryService {
     return this.http.post(`${this.EventApiUri}/add`,event);
   }
 
-  // getFavoritesByUserID(favorites:IFavorites) {
-  //   return this.http.get(`${this.FavoriteApiUri}/${userID}`);
-  // }
+  getFavoritesByUserID(userID: number) {
+    return this.http.get(`${this.FavoriteApiUri}/${userID}`);
+  }
 
-  // addFavorite(favorites:IFavorites) {
-  //   return this.http.post(`${this.FavoriteApiUri}/add/${userID}/${eventID}`);
-  // }
+  addFavorite(favorites:IFavorites) {
+    return this.http.post(`${this.FavoriteApiUri}/add`,favorites);
+  }
 
-  // deleteFavoriteByID(favorites:IFavorites) {
+  // deleteFavoriteByID(id: number) {
   //   return this.http.post(`${this.FavoriteApiUri}/delete/${id}`);
   // }
 
-  //   getEventDetails(index: string){
-//     let newUri = `${this.apiUri}/${index}`
-//     return this.http.get<IEvent>(newUri)
-//   }
+    getEventDetails(index: string){
+    let newUri = `${this.EventApiUri}/${index}`
+    return this.http.get<IEvent>(newUri)
+  }
 }

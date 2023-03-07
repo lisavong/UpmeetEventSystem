@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IEvent } from 'app/interfaces/event';
+import { IFavorites } from 'app/interfaces/favorites'
 import { RepositoryService } from 'app/repository.service';
 
 @Component({
@@ -17,6 +18,9 @@ export class EventComponent {
   description: string = "";
   price: string = "";
   location: string= "";
+  userID: number = -1;
+  eventID: number =-1;
+
 
   ngOnInit(): void {
     this.gettEvents();
@@ -46,6 +50,18 @@ export class EventComponent {
       (response) => {
         this.events = response;
       });
+  }
+
+  addFavorite(form: NgForm) {
+   let newFavorite: IFavorites = {
+    id: -1,
+    userID: form.form.value.userID,
+    eventID: form.form.value.eventID
+   };
+
+   this.repositoryService.addFavorite(newFavorite).subscribe(
+    () => {}
+   );
   }
 
 }

@@ -14,14 +14,30 @@ export class FavoritesComponent {
   constructor(private repositoryService: RepositoryService) {}
 
   favorites: any;
+  activeUserID: number = -1;
+  deleteID: number =-1;
 
+  getUserID(form: NgForm) {
+   this.activeUserID = form.form.value.activeUserID;
+  }
 
-  toggleFavorites(): void {
+  toggleFavorites(activeUserID: number) {
     this.showFavorites = !this.showFavorites;
-    // if (favorites = null) {
+
+    this.repositoryService.getFavoritesByUserID(activeUserID).subscribe(
+      (response) => {
+        this.favorites = response;
+      });
+
+    // if (activeUserID === null) {
     //   this.favoriteText = `You have no favorite events. Go back and add some!`;
     // }
   }
 
-  
-}
+  // deleteFavoriteByID(deleteID: number) {
+  //   this.repositoryService.deleteFavoriteByID(deleteID).subscribe(
+  //     (response) => {
+  //       this.toggleFavorites(this.activeUserID);
+  //     }
+  //   );
+  }

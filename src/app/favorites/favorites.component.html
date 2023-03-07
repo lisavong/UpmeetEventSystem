@@ -1,17 +1,22 @@
 <h1>Your Favorite Events</h1>
 
-<!-- <div>
-    <form #userIDForm="ngForm" (ngSubmit)="addUserID(userIDForm)">
-        <label for="userID">Enter user ID:</label>
-       <input name="userID" id="userID" ngModel />
-       <button (click)="toggleFavorites()">Show Favorites</button>
+<div>
+    <form #userIDForm="ngForm" (ngSubmit)="getUserID(userIDForm); toggleFavorites(activeUserID)">
+        <label for="activeUserID">Enter user ID:</label>
+       <input name="activeUserID" id="activeUserID" ngModel />
+       <button>Show Favorites</button>
     </form>
-</div> -->
+</div>
 
 <div *ngIf="showFavorites">
-    <div *ngFor="let name of favorites">
-        <div> {{name}} </div>
+    <div *ngFor="let fave of favorites">
+        <div> {{fave.eventID}} </div>
     </div>
+    <!-- <form #deleteForm="ngForm" (ngSubmit)="deleteFavoriteByID(deleteID)">
+        <label for="deleteID">Enter ID You Want To Remove:</label>
+        <input name="deleteID" id="deleteID" ngModel />
+        <button>Remove From Favorites</button>
+    </form> -->
     <div>
         {{favoriteText}}
     </div>

@@ -14,8 +14,8 @@ export class EventDetailsComponent {
 
   constructor(private route: ActivatedRoute, private repo:RepositoryService) { }
 
-  // ngOnInit(): void {
-  //   this.repo.getEventDetails(this.index).subscribe(
-  //     (response) => {this.eventDetails = response;});
-  // }
+  ngOnInit(): void {
+    this.repo.getEventDetails(this.index).subscribe(
+      (response) => {this.eventDetails = response;});
+  }
 }

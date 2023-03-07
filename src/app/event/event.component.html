@@ -9,6 +9,20 @@
 </ul>
 </div>
 
+<div>
+  <h3>Event List</h3>
+  <div *ngFor="let party of events">
+      <a [routerLink]="['app-event-details/', party.eventID]" routerLinkActive="active">{{party.name}}</a>
+      <app-event-details  index={{party.eventID}} ></app-event-details>
+  </div>
+</div>
+
+<form #newFavoriteForm="ngForm" (ngSubmit)="addFavorite(newFavoriteForm)">
+  <label for="userID">User ID:</label> <input name="userID" id="userID" ngModel />
+  <label for="eventID">Event ID:</label> <input name="eventID" id="eventID" ngModel />
+  <button>Add Favorite</button>
+</form>
+
 
 <div>
   <form #newEventForm="ngForm" (ngSubmit)="addEvent(newEventForm)">
