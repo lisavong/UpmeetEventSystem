@@ -1,8 +1,13 @@
-<h4>Event Details</h4>
-    <dl>
-        <dt>Event Description</dt>
-        <dd>{{eventDetails?.description}}</dd>
-        <dt>Event Location</dt>
-        <dd>{{eventDetails?.location}}</dd>
-    </dl>
+<h1>Details for {{eventDetails.name}}</h1>
 
+<h2>Date</h2>
+<span>{{eventDetails.date}}</span>
+<hr>
+<h2>Price</h2>
+<span>${{eventDetails.price}}</span>
+<hr>
+<h2>Location</h2>
+<span>{{eventDetails.location}}</span>
+<hr>
+<h2>Description</h2>
+<span>{{eventDetails.description}}</span>

@@ -9,13 +9,19 @@ import { RepositoryService } from 'app/repository.service';
   styleUrls: ['./event-details.component.css']
 })
 export class EventDetailsComponent {
-  @Input() index: string = "N/A";
-  eventDetails: IEvent | undefined;
+  @Input() index: number = -1;
 
   constructor(private route: ActivatedRoute, private repo:RepositoryService) { }
+  eventDetails: any;
+  date: string ="";
+  name: string = "";
+  description: string = "";
+  price: string = "";
+  location: string= "";
 
   ngOnInit(): void {
-    this.repo.getEventDetails(this.index).subscribe(
+    this.index = this.route.snapshot.params['index'];
+    this.repo.getEventByID(this.index).subscribe(
       (response) => {this.eventDetails = response;});
   }
 }

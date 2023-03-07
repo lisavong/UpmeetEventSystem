@@ -34,8 +34,7 @@ export class RepositoryService {
     return this.http.delete(`${this.FavoriteApiUri}/delete/${id}`);
   }
 
-    getEventDetails(index: string){
-    let newUri = `${this.EventApiUri}/${index}`
-    return this.http.get<IEvent>(newUri)
+    getEventByID(eventID: number){
+    return this.http.get(`${this.EventApiUri}/${eventID}`);
   }
 }

@@ -1,28 +1,24 @@
-<div>
+<!-- <div>
   <ul>
     <li *ngFor="let event of events, index as eventID">
-      <!-- <span style="font-size: 20px;text-align: center;">
-        <a [routerLink]="['/event-details/' + eventID]"> {{event.name}}</a>
-      </span> -->
       <p>{{event.name}}</p>
     </li>
 </ul>
+</div> -->
+
+<h3>Event List</h3>
+<div *ngFor="let event of events, index as i">
+      <a [routerLink]="['/event-details', i+1]" routerLinkActive="active">{{event.name}}</a>
 </div>
+
 
 <div>
-  <h3>Event List</h3>
-  <div *ngFor="let party of events">
-      <a [routerLink]="['app-event-details/', party.eventID]" routerLinkActive="active">{{party.name}}</a>
-      <app-event-details  index={{party.eventID}} ></app-event-details>
-  </div>
+  <form #newFavoriteForm="ngForm" (ngSubmit)="addFavorite(newFavoriteForm)">
+    <label for="userID">User ID:</label> <input name="userID" id="userID" ngModel />
+    <label for="eventID">Event ID:</label> <input name="eventID" id="eventID" ngModel />
+    <button>Add Favorite</button>
+  </form>
 </div>
-
-<form #newFavoriteForm="ngForm" (ngSubmit)="addFavorite(newFavoriteForm)">
-  <label for="userID">User ID:</label> <input name="userID" id="userID" ngModel />
-  <label for="eventID">Event ID:</label> <input name="eventID" id="eventID" ngModel />
-  <button>Add Favorite</button>
-</form>
-
 
 <div>
   <form #newEventForm="ngForm" (ngSubmit)="addEvent(newEventForm)">
