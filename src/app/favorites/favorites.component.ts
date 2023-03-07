@@ -41,12 +41,12 @@ export class FavoritesComponent {
   deleteFavoriteByID(form: NgForm) {
 
     let deletedFavorite: IFavorites = {
-      id: form.form.value.userID,
+      id: form.form.value.deleteID,
       userID: -1,
       eventID: -1
      };
 
-    this.repositoryService.deleteFavoriteByID(deletedFavorite).subscribe(
+    this.repositoryService.deleteFavoriteByID(deletedFavorite.id).subscribe(
       (response) => {
         this.repositoryService.getFavoritesByUserID(this.activeUserID);
       }

@@ -30,8 +30,8 @@ export class RepositoryService {
     return this.http.post(`${this.FavoriteApiUri}/add`,favorites);
   }
 
-  deleteFavoriteByID(favorite:IFavorites) {
-    return this.http.post(`${this.FavoriteApiUri}/delete/${favorite.id}`, favorite);
+  deleteFavoriteByID(id: number) {
+    return this.http.delete(`${this.FavoriteApiUri}/delete/${id}`);
   }
 
     getEventDetails(index: string){

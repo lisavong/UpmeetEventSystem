@@ -26,7 +26,7 @@ namespace UpmeetEventAPI.Controllers
             return repo.AddFavorite(newFavorite);
         }
 
-        [HttpPost("delete/{id}")]
+        [HttpDelete("delete/{id}")]
         public HttpResponseMessage DeleteById(int id)
         {
             try
