@@ -9,11 +9,6 @@ import { EventComponent } from './event/event.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 
-// import { MatDatepickerModule } from '@angular/material/datepicker';
-// import { MatNativeDateModule } from '@angular/material/core';
-// import { MatFormFieldModule } from '@angular/material/form-field';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,10 +22,6 @@ import { FavoritesComponent } from './favorites/favorites.component';
     HttpClientModule,
     FormsModule,
     CoreModule,
-    // MatFormFieldModule,
-    // MatNativeDateModule,
-    // MatDatepickerModule,
-    // BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
