@@ -9,8 +9,8 @@
 </div>
 
 <div *ngIf="showFavorites">
-    <div *ngFor="let fave of favorites, index as i">
-        <span> Favorites ID: {{fave.id}} | <a [routerLink]="['/event-details', i+1]" routerLinkActive="active"> {{fave.name}}</a>
+    <div *ngFor="let fave of favorites, index as eventID">
+        <span> Favorites ID: {{fave.id}} | <a [routerLink]="['/event-details', fave.eventID]" routerLinkActive="active"> {{fave.name}}</a>
          </span>
     </div>
     <br>

@@ -33,9 +33,6 @@ export class FavoritesComponent {
   getUserID(form: NgForm) {
    this.activeUserID = form.form.value.activeUserID;
    form.resetForm();
-   form.reset();
-   this.showFavorites = false;
-   this.noFavorites = false;
   }
 
   toggleFavorites(activeUserID: number) {
@@ -60,12 +57,7 @@ export class FavoritesComponent {
     )
     .subscribe((response) => {
       this.favorites = response;
-      if (this.favorites == undefined) {
-        this.noFavorites = true;
-      }
-      else {
-        this.showFavorites = true;
-      }
+      this.showFavorites = true;
     });
     }
 
@@ -79,9 +71,10 @@ export class FavoritesComponent {
      };
 
     this.repositoryService.deleteFavoriteByID(deletedFavorite.id).subscribe(
-      (response) => {
-        this.repositoryService.getFavoritesByUserID(this.activeUserID);
+      () => {
+        this.toggleFavorites(this.activeUserID)
       }
     );
+    form.resetForm();
   }
 }

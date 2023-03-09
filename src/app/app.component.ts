@@ -10,8 +10,4 @@ export class AppComponent {
   title = 'UpmeetEventSystem';
   userID = -1;
 
-  // addUserID(form:NgForm){
-  //   let userID = form.form.value.userID;
-  //   this.favorites.push(userID);
-  // }
 }

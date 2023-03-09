@@ -89,6 +89,7 @@ export class EventComponent {
    this.repositoryService.addFavorite(newFavorite).subscribe(
     () => {}
    );
+   form.resetForm();
   }
 
 }
