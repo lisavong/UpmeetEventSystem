@@ -13,7 +13,6 @@ import { forkJoin, map } from 'rxjs';
 export class FavoritesComponent {
 
   showFavorites: boolean = false;
-  noFavorites: boolean = false;
   favoriteText: string = "";
 
   constructor(private repositoryService: RepositoryService) {}

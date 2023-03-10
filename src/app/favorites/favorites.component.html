@@ -1,6 +1,20 @@
+<style>
+    /* Define the animation */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  
+    /* Apply the animation to the text */
+    h1 {
+      animation: fadeIn 1s ease-in-out;
+      font-size: 48px;
+    }
+  </style>
+
 <h1>Your Favorite Events</h1>
 
-<div>
+<div align="center">
     <form #userIDForm="ngForm" (ngSubmit)="getUserID(userIDForm); toggleFavorites(activeUserID)">
         <label for="activeUserID">Enter user ID:</label>
        <input name="activeUserID" id="activeUserID" ngModel />
@@ -8,7 +22,7 @@
     </form>
 </div>
 
-<div *ngIf="showFavorites">
+<div align ="center" *ngIf="showFavorites">
     <div *ngFor="let fave of favorites, index as eventID">
         <span> Favorites ID: {{fave.id}} | <a [routerLink]="['/event-details', fave.eventID]" routerLinkActive="active"> {{fave.name}}</a>
          </span>
@@ -19,8 +33,5 @@
         <input name="deleteID" id="deleteID" ngModel />
         <button>Remove From Favorites</button>
     </form>
-    <div *ngIf="noFavorites">
-    <p>You have no favorite events. Go back and add some!</p>
-    </div>
 </div>
 

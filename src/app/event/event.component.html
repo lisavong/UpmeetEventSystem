@@ -1,46 +1,18 @@
-<!-- <div>
-  <ul>
-    <li *ngFor="let event of events, index as eventID">
-      <p>{{event.name}}</p>
-    </li>
-</ul>
-</div> -->
+<style>
+  /* Define the animation */
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
 
-<!-- <h3>Event List</h3>
-<div *ngFor="let event of events, index as i">
-      <a [routerLink]="['/event-details', i+1]" routerLinkActive="active">{{event.name}}</a>
-</div>
-<br>
-<hr>
-<button (click)="toggleAddFave()">{{buttonFaveText}}</button>
-<div *ngIf="showFaveAdd">
-  <form #newFavoriteForm="ngForm" (ngSubmit)="addFavorite(newFavoriteForm)">
-    <label for="userID">User ID:</label> <input name="userID" id="userID" ngModel />
-    <label for="eventID">Event ID:</label> <input name="eventID" id="eventID" ngModel />
-    <button>Add Favorite</button>
-  </form>
-</div>
-<br>
-<hr>
-<button (click)="toggleAddEvent()">{{buttonEventText}}</button>
-<div *ngIf="showEventAdd">
-  <form #newEventForm="ngForm" (ngSubmit)="addEvent(newEventForm)">
-    <p> <label for="date">Date of Event:</label> <input name="date" id="date" ngModel /></p>
-    <p> <label for="name">Event Name:</label> <input name="name" id="name" ngModel /> </p>
-    <p> <label for="description">Description:</label> <input name="description" id="description" ngModel /></p>
-    <p> <label for="price">Price per ticket:</label> <input name="price" id="price" ngModel /></p>
-    <p> <label for="location">Location:</label> <input name="location" id="location" ngModel /></p>
-    <p><button>Add New Event</button></p>
-    </form>
-</div> -->
+  /* Apply the animation to the text */
+  h1 {
+    animation: fadeIn 1s ease-in-out;
+    font-size: 48px;
+  }
+</style>
 
-<!-- <mat-form-field appearance="outline"> -->
-  
-<!-- </mat-form-field> -->
-
-
-
-  <div style="text-align: center;">
+<div style="text-align: center;">
     <h1>Event List</h1>
     <div *ngFor="let event of events, index as i">
      <p> Event ID: {{event.eventID}} | <a [routerLink]="['/event-details', i+1]" routerLinkActive="active">{{event.name}}</a> </p>
